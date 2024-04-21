@@ -11,6 +11,10 @@ import static org.junit.jupiter.api.Assertions.*;
 class StringProcessorTest {
 
     //ToDo: Remove the list creation for all the tests, replace it with list initialization
+    private List <String> input;
+    private List <String> expected;
+    private List <String> actual;
+
 
     @BeforeEach
     public void setUp() {
@@ -21,27 +25,34 @@ class StringProcessorTest {
 
     @Test
     public void testFilterAndSortPalindromes() {
-        List<String> input = Arrays.asList("radar", "hello", "level", "world", "madam", "java");
-        List<String> expected = Arrays.asList("radar", "level", "madam");
-        List<String> actual = StringProcessor.filterAndSortPalindromes(input);
+        input = Arrays.asList("radar", "hello", "level", "world", "madam", "java");
+        expected = Arrays.asList("radar", "level", "madam");
+        actual = StringProcessor.filterAndSortPalindromes(input);
         assertEquals(expected, actual);
     }
 
     @Test
     public void testFilterAndSortPalindromesWithEmptyList() {
-        List<String> input = Arrays.asList();
-        List<String> expected = Arrays.asList();
-        List<String> actual = StringProcessor.filterAndSortPalindromes(input);
+        input = Arrays.asList();
+        expected = Arrays.asList();
+        actual = StringProcessor.filterAndSortPalindromes(input);
         assertEquals(expected, actual);
     }
 
     @Test
     public void testFilterAndSortPalindromesWithNoPalindromes() {
-        List<String> input = Arrays.asList("java", "hello", "world");
-        List<String> expected = Arrays.asList();
-        List<String> actual = StringProcessor.filterAndSortPalindromes(input);
+        input = Arrays.asList("java", "hello", "world");
+        expected = Arrays.asList();
+        actual = StringProcessor.filterAndSortPalindromes(input);
         assertEquals(expected, actual);
     }
 
     //ToDo: Write a method that will test if the sorting in the method works correctly
+    @Test
+    public void testSortingWorksCorrectly() {
+        input = Arrays.asList("java", "hello", "world", "radar", "level", "madam");
+        expected = Arrays.asList("radar", "level", "madam");
+        actual = StringProcessor.filterAndSortPalindromes(input);
+        assertEquals(expected, actual);
+    }
 }
